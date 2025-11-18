@@ -1,0 +1,95 @@
+:root { /* 全局变量定义 */
+    --header-height: 90px; /* 头部高度 */
+    --nav-height: 50px; /* 导航栏高度 */
+    --primary-bg-color: rgba(34, 33, 33, 0.8);  /* 主背景颜色 */
+    --header-bg-color: rgba(249, 249, 249, 0.7);    /* 头部背景颜色 */
+    --nav-bg-color: rgba(167, 167, 167, 0.7);   /* 导航栏背景颜色 */
+    --text-color: #ffffff;  /* 主要文本颜色 */
+    --header-text-color: #000000;   /* 头部文本颜色 */
+    --link-hover-color: #ffe600;    /* 链接悬停颜色 */
+}
+
+body {  /* 全局样式 */
+    background-image: url('./image/background.png');    /* 背景图片路径 */
+    background-size: cover; /* 覆盖整个背景 */
+    background-position: center;    /* 背景图片居中 */
+    background-repeat: no-repeat;   /* 不重复背景图片 */
+    background-attachment: fixed;   /* Keep background fixed during scroll */
+    font-family: Arial, Helvetica, sans-serif;  /* 全局字体 */
+    margin: 0;  /* 去掉默认外边距 */
+    padding: 0; /* 去掉默认内边距 */
+    display: flex;  /* 使用 Flexbox 布局 */
+    flex-direction: column; /* 垂直排列子元素 */
+    min-height: 100vh;  /* 视口高度 */
+}
+
+.header {   /* 头部样式 */
+    position: fixed;    /* 固定在顶部 */
+    top: 0; /* 距离顶部0 */
+    left: 0;    /* 距离左侧0 */
+    width: 100%;    /* 宽度100% */
+    height: var(--header-height);   /* 头部高度 */
+    background-color: var(--header-bg-color);   /* 头部背景颜色 */
+    color: var(--header-text-color);    /* 头部文本颜色 */
+    display: flex;  /* 使用 Flexbox 布局 */
+    justify-content: center;    /* 水平居中 */
+    align-items: center;    /* 垂直居中 */
+    font-size: 24px;    /* 字体大小 */
+    z-index: 1000;  /* 确保头部在最上层 */
+}
+
+#nav {  /* --- 1. 导航栏容器 --- */
+    background-color: var(--nav-bg-color);  /* 导航栏背景颜色 */
+    padding: 10px;  /* 内边距 */
+    position: fixed;    /* 固定位置 */
+    width: 100%;    /* 宽度100% */
+    top: var(--header-height);  /* 距离头部高度 */
+    left: 0;    /* 距离左侧0 */
+    z-index: 999;   /* 确保导航栏在头部下方 */
+    height: var(--nav-height);  /* 导航栏高度 */
+    display: flex;  /* 使用 Flexbox 布局 */
+    justify-content: center;    /* 水平居中 */
+    align-items: center;    /* 垂直居中 */
+}
+#nav ul {   /* 导航列表样式 */
+    list-style-type: none; /* 【关键】去掉默认的列表样式 */
+    margin: 0;             /* 去掉默认外边距 */
+    padding: 0;            /* 去掉默认内边距 */
+    display: flex;         /* 【关键】让菜单项横向排列 */
+    justify-content: center; /* 让菜单居中显示 (如果你想靠左，改成 flex-start) */
+    gap: 30px;             /* 每个菜单项之间的间距 */
+}
+
+/* --- 3. 链接本身 (a) --- */
+#nav a {
+    text-decoration: none;  /* 去掉下划线 */
+    color: var(--text-color);   /* 链接颜色 */
+    font-weight: bold;  /* 字体加粗 */
+    font-size: 18px;    /* 字体大小 */
+    transition: color 0.3s; /* 平滑过渡效果 */
+}
+
+#nav a:hover {  /* 悬停效果 */
+    color: var(--link-hover-color); //* 悬停颜色 */
+}
+
+main {  /* 主内容样式 */
+    flex: 1; /* Allow main to grow and fill available space */
+    padding-top: calc(var(--header-height) + var(--nav-height) + 20px); /* Push content below fixed nav */
+    padding-bottom: 20px;
+}
+
+.section {
+    margin: 20px 80px; /* Adjust vertical margin */
+    padding: 20px;
+    color: var(--text-color);
+    background-color: var(--primary-bg-color);
+    border-radius: 10px;
+}
+
+footer {    /* 页脚样式 */
+    text-align: center; /* 居中对齐 */
+    padding: 20px;  /* 内边距 */
+    color: var(--text-color);   /* 页脚文本颜色 */
+    background-color: var(--primary-bg-color);  /* 页脚背景颜色 */
+}
